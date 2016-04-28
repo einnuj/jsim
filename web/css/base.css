@@ -1,2 +1,33 @@
-@import url("reset.css");
+body {
+    background-color: #204d74;
+    color: white;
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
+.vertical-center-block {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical-center-inline {
+    display: inline-block;
+}
+
+.name-string {
+    color: #ec971f;
+}
+
+.thumbnail {
+    min-height: 400px;
+}
+
+.thumbnail img{
+    min-height: 200px;
+    height: 200px;
+    overflow: auto;
+}

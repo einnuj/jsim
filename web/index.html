@@ -1,41 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Junnie Sim - Software Engineer</title>
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
 </head>
 <body>
-    <h1>Hello World</h1>
-        <p>I hope you're well. My name is Junnie Sim. I'm a Computer Science and Linguistics double major graduating from Stony Brook University at the end of Summer 2016.</p>
-        <p>Let me show you what I've done so far.</p>
-    <h1>Projects</h1>
-        <ul>
-            <li>Comic Sans
-                <p>Group Project, Capstone Course</p>
-                <p>A Java Google App Engine Web platform for comic artists to showcase their work and develop a fanbase.</p>
-            </li>
-            <li>RxCheck
-                <p>Group Hack, HackRU "Best Use of MongoDB"</p>
-                <p>A Python/Flask/MongoDB Website that allowed users to cross-check their medications and their existing conditions for potential violations; also alerts users to newly discovered violations via call/text/email.</p>
-            </li>
-            <li>If You Are The One
-                <p>Group Project, Databases Course</p>
-                <p>A Java/MySQL dating Website with automated partner suggestions, feedback system, and administrators' portal.</p>
-            </li>
-        </ul>
-    <h1>History</h1>
-        <ul>
-            <li>CA Innocation Center @ CEWIT
-                <p>Internship: Senior Research Aide</p>
-            </li>
-            <li>Orbis Systems Inc.
-                <p>Internship: Software Developer</p>
-            </li>
-        </ul>
-    <h1>Contact</h1>
-        <ul>
-            <li>junniesim91@gmail.com</li>
-        </ul>
+
+    <div class="container">
+        <div class="page-header">
+            <div class="vertical-center-block">
+                <div class="vertical-center-inline">
+                    <h1>Hello World</h1>
+                        <p class="lead">I hope you're well. My name is <span class="name-string">Junnie Sim</span>. I'm a Computer Science and Linguistics double major graduating from Stony Brook University at the end of Summer 2016.</p>
+                        <p class="lead">Let me show you what I've done so far.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h1>Projects</h1>
+            <div class="row">
+                <div class="col-xs-4 col-md-4">
+                    <div class="thumbnail">
+                        <a href="https://comic-sans.appspot.com">
+                            <img src="res/ComicSansSS.PNG" alt="">
+                        </a>
+                        <div class="caption">
+                            <h3>Comic Sans <small>Group Project | Capstone Course</small></h3>
+                            <p>A Java Google App Engine Web platform for comic artists to showcase their work and develop a fanbase.</p>
+                        </div>
+                    </div>
+                    </div>
+                <div class="col-xs-4 col-md-4">
+                    <div class="thumbnail">
+                        <a href="https://hackru.byang.io">
+                            <img src="res/RxCheckSS.PNG" alt="">
+                        </a>
+                        <div class="caption">
+                            <h3>RxCheck <small>Group Hack | HackRU "Best Use of MongoDB"</small></h3>
+                            <p>A Python/Flask/MongoDB Website that allows users to cross-check their medications and their existing conditions for potential violations; also alerts users to newly discovered violations via call/text/email.</p>
+                        </div>
+                    </div>
+                    </div>
+                <div class="col-xs-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="res/IfYouAreTheOneMock.PNG" alt="">
+                        <div class="caption">
+                            <h3>If You Are The One <small>Group Project | Databases Course</small></h3>
+                            <p>A Java/MySQL dating Website with automated partner suggestions, feedback system, and administrators' portal.</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h1>History</h1>
+                <ul>
+                    <li>CA Innovation Center @ CEWIT
+                        <p>Internship: Senior Research Aide</p>
+                    </li>
+                    <li>Orbis Systems Inc.
+                        <p>Internship: Software Developer</p>
+                    </li>
+                </ul>
+            </div>
+
+        <div class="page-header">
+            <h1>Contact</h1>
+                <ul>
+                    <li>junniesim91@gmail.com</li>
+                </ul>
+        </div>
+        </div>
 </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
