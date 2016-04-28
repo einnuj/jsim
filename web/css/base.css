@@ -6,11 +6,14 @@ body {
     margin-right: 10%;
 }
 
+.center-width {
+    display: flex;
+    align-items: center;
+}
+
 .vertical-center-block {
     min-height: 100vh;
 
-    display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -30,4 +33,19 @@ body {
     min-height: 200px;
     height: 200px;
     overflow: auto;
+}
+
+.panel-default {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.panel-text {
+    color: black;
+}
+
+.glyphicon {
+    margin-left: 50%;
+    margin-right: 50%;
+    color: #ec971f;
 }
