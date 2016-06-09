@@ -15,7 +15,6 @@ body {
     min-height: 100vh;
 
     justify-content: center;
-    align-items: center;
 }
 
 .vertical-center-inline {
@@ -46,12 +45,4 @@ body {
 
 .glyphicon {
     color: #ec971f;
-}
-
-#CSE300 {
-    color: black;
-}
-
-img {
-    margin-left: 35%;
 }
