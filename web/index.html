@@ -91,20 +91,41 @@
 
         <div class="page-header">
             <h1>Contact Me</h1>
-            <div class="input-group center-block">
+            <div class="center-block">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <span class="input-group-btn">
+
+                    <div class="panel-body">
+                        <form>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="contactName" placeholder="Your Name">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="contactEmail" placeholder="Your Email">
+                        </div>
+
+                        <div class="panel-text">
+                            <textarea class="form-control" rows="5" placeholder="Enter your message here!"></textarea>
+                        </div>
+
+                        </form>
+                    </div>
+
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="businessCheckbox" value="">Is this business related? You get priority!
+                            </label>
+
+                            <div class="input-group-btn text-right">
                                 <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Send Message" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-send" aria-hidden="true" aria-label="Send"></span>
                                 </button>
-                            </span>
-                        </h3>
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body panel-text">
-                        <textarea class="form-control" rows="5" placeholder="Enter your message here!"></textarea>
-                    </div>
+
                 </div>
             </div>
         </div>
