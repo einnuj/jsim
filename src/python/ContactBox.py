@@ -19,7 +19,9 @@ def process_message():
 
 
 def message_posted():
-    sender = request.form['sender']
+    sender = request.form['contactName']
+    email = request.form['contactEmail']
+    business = request.form['business']
     msg = request.form['message']
     pass
 

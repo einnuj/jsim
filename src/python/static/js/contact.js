@@ -2,11 +2,22 @@
 $(function() {
     $('#contactBtn').click(function() {
         console.log("contact-btn has been clicked!");
-        var msg = {
+        sendMessage();
+    })
+});
+
+function sendMessage() {
+    $.ajax({
+        url: $SCRIPT_ROOT + "/contactme",
+        type: "POST",
+        data: {
             name: $('#contactName').val(),
             email: $('#contactEmail').val(),
-            business: $('#businessCheckbox').is('checked')
-        };
-        console.log(msg);
-    })
-})
+            business: $('#businessCheckbox').is('checked'),
+            message: $('#contactMessage').val()
+        },
+        success: function(response) {
+            console.log("Response was a Success!");
+        }
+    });
+}
