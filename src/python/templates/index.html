@@ -119,7 +119,7 @@
                             </label>
 
                             <div class="input-group-btn text-right">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Send Message" aria-label="Left Align">
+                                <button type="button" id="contactBtn" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Send Message" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-send" aria-hidden="true" aria-label="Send"></span>
                                 </button>
                             </div>
@@ -139,3 +139,8 @@
   url_for('static', filename='js/jquery-3.1.0.min.js') }}">\x3C/script>')</script>
 <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ttip.js') }}"></script>
+<script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+
+<script type=text/javascript>
+    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
