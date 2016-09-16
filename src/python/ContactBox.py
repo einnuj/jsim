@@ -1,6 +1,4 @@
-from flask import Flask
-from flask import render_template
-from flask import request
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -14,14 +12,16 @@ def index():
 @app.route('/contactme', methods=['POST'])
 def process_message():
     error = None
+
     if request.method == 'POST':
-        message_posted()
+        return message_posted()
 
 
 def message_posted():
-    sender = request.form['contactName']
-    email = request.form['contactEmail']
+    sender = request.form['name']
+    email = request.form['email']
     business = request.form['business']
     msg = request.form['message']
-    pass
+
+    return jsonify(response="success?")
 
