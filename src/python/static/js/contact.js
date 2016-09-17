@@ -1,6 +1,8 @@
 $(function() {
     $('#contactBtn').click(function() {
-        sendMessage();
+        if (validateForm()) {
+            sendMessage();
+        }
     });
     $('#closeSuccessBtn').click(function() {
         $('#alertSuccess').hide();
@@ -9,6 +11,11 @@ $(function() {
         $('#alertError').hide();
     });
 });
+
+function validateForm() {
+
+    return true;
+}
 
 function sendMessage() {
     $.ajax({
