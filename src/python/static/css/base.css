@@ -47,6 +47,10 @@ body {
     color: #ec971f;
 }
 
+.popover-title, .popover-content {
+    color: black;
+}
+
 .checkbox-inline {
     color: black;
 }
