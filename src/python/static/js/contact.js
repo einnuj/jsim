@@ -1,9 +1,13 @@
-// jQuery's document.ready() in shortcut form; append click function to contact button.
 $(function() {
     $('#contactBtn').click(function() {
-        console.log("contact-btn has been clicked!");
         sendMessage();
-    })
+    });
+    $('#closeSuccessBtn').click(function() {
+        $('#alertSuccess').hide();
+    });
+    $('#closeErrorBtn').click(function() {
+        $('#alertError').hide();
+    });
 });
 
 function sendMessage() {
@@ -17,7 +21,19 @@ function sendMessage() {
             message: $('#contactMessage').val()
         },
         success: function(response) {
-            console.log("Response was a Success!");
+            respondSuccess();
+        },
+        error: function(response) {
+            respondError();
         }
     });
+}
+
+function respondSuccess() {
+    $('#contactMessage').val('');
+    $('#alertSuccess').show();
+}
+
+function respondError() {
+    $('#alertError').show();
 }
