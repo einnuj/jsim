@@ -1,6 +1,6 @@
 $(function() {
     $('#contactBtn').click(function() {
-        if (validateForm()) {
+        if (validateInput()) {
             sendMessage();
         }
     });
@@ -10,10 +10,32 @@ $(function() {
     $('#closeErrorBtn').click(function() {
         $('#alertError').hide();
     });
+    $('#contactEmail').on('show.bs.popover', function() {
+        setTimeout(function() {
+            $('#contactEmail').popover('hide');
+        }, 3000);
+    })
 });
 
-function validateForm() {
+function validateInput() {
+    var inputName = $('#contactName').val();
 
+    if (typeof inputName != 'undefined') {
+        if (inputName.length == 0) {
+            $('#contactName').val('Anonymous');
+        }
+    }
+
+    var inputEmail = $('#contactEmail').val();
+
+    if (typeof inputEmail != 'undefined') {
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (inputEmail.replace(/\s/g).length == 0 || regex.test(inputEmail)) {
+            $('#contactEmail').popover('show');
+            return false;
+        }
+    }
     return true;
 }
 
