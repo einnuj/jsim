@@ -21,6 +21,10 @@ body {
     display: inline-block;
 }
 
+.modal-title {
+    color: black;
+}
+
 .name-string {
     color: #ec971f;
 }

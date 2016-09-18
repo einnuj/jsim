@@ -11,11 +11,11 @@ $(function() {
     $('#closeErrorBtn').click(function() {
         $('#alertError').hide();
     });
-    //$('#contactEmail').on('show.bs.popover', function() {
-        //setTimeout(function() {
-            //$('#contactEmail').popover('hide');
-        //}, 3000);
-    //})
+    $('#contactEmail').on('show.bs.popover', function() {
+        setTimeout(function() {
+            $('#contactEmail').popover('hide');
+        }, 3000);
+    })
 });
 
 function validateInput() {
@@ -34,9 +34,6 @@ function validateInput() {
 
         if (inputEmail.replace(/\s/g).length == 0 || !regex.test(inputEmail)) {
             $('#contactEmail').popover('show');
-            setTimeout(function() {
-                $('#contactEmail').popover('hide');
-            }, 3000);
             return false;
         }
     }
