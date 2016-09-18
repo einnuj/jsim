@@ -13,6 +13,19 @@
 </head>
 <body>
 
+    <div class="modal fade" id="reCAPTCHAModal" tabindex="-1" role="dialog" aria-labelledby="reCAPTCHAModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="reCAPTCHAModalLabel">reCAPTCHA</h4>
+                </div>
+
+                <div class="g-recaptcha" data-sitekey="6LfX8gYUAAAAAKPAg31OIPsTqtQQAdNtJKVPsrpS"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="page-header">
             <div class="center-width vertical-center-block">
@@ -150,6 +163,8 @@
 <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ttip.js') }}"></script>
 <script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 
 <script type=text/javascript>
     $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
