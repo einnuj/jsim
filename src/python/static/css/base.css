@@ -25,6 +25,22 @@ body {
     color: #ec971f;
 }
 
+a:link {
+    color: #ec971f;
+}
+
+a:visited {
+    color: #ec971f;
+}
+
+a:hover {
+    color: darkgrey;
+}
+
+a:active {
+    color: white;
+}
+
 .thumbnail {
     min-height: 400px;
 }
