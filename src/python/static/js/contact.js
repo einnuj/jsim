@@ -2,7 +2,6 @@ $(function() {
     $('#contactBtn').click(function() {
         if (validateInput()) {
             $('#reCAPTCHAModal').modal();
-            // sendMessage();
         }
     });
     $('#closeSuccessBtn').click(function() {
@@ -40,6 +39,26 @@ function validateInput() {
     return true;
 }
 
+function verifyRecaptcha(recatcha_resp) {
+
+    return $.ajax({
+        url: "https://www.google.com/recaptcha/api/siteverify",
+        type: "POST",
+        dataType: 'json',
+        data: {
+            secret: "6LfX8gYUAAAAAKPAg31OIPsTqtQQAdNtJKVPsrpS",
+            response: recatcha_resp
+        }
+    })
+    .done(function() {
+        sendMessage();
+    })
+    .fail(function() {
+        var errMsg = "Sorry; the request to verify your reCAPTCHA has failed!";
+        respondError(errMsg);
+    });
+}
+
 function sendMessage() {
     $.ajax({
         url: $SCRIPT_ROOT + "/contactme",
@@ -56,6 +75,13 @@ function sendMessage() {
         error: function(response) {
             respondError();
         }
+    })
+    .done(function() {
+        respondSuccess();
+    })
+    .fail(function() {
+        var errMsg = "There was a server error; Junnie has been notified. Sorry!";
+        respondError(errMsg);
     });
 }
 
@@ -64,6 +90,6 @@ function respondSuccess() {
     $('#alertSuccess').show();
 }
 
-function respondError() {
-    $('#alertError').show();
+function respondError(errMsg) {
+    $('#alertError').val(errMsg).show();
 }
