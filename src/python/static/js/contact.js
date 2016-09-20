@@ -41,18 +41,19 @@ function validateInput() {
     return true;
 }
 
-function verifyRecaptcha(recatcha_resp) {
+function verifyRecaptcha(recaptcha_resp) {
 
     return $.ajax({
         url: "https://www.google.com/recaptcha/api/siteverify",
         type: "POST",
         dataType: 'json',
         data: {
-            secret: "6LfX8gYUAAAAAKPAg31OIPsTqtQQAdNtJKVPsrpS",
-            response: recatcha_resp
+            secret: "6LfX8gYUAAAAAG2D9qXU62anvibwX6XU1esTwQWI",
+            response: recaptcha_resp
         }
     })
     .done(function() {
+        $('.modal-footer').val("You are (probably) not a robot; sending the message now!");
         sendMessage();
     })
     .fail(function() {
