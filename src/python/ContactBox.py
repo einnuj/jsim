@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from smtplib import SMTP
 from email.mime.text import MIMEText
 from subprocess import Popen, PIPE
+import requests
 
 app = Flask(__name__)
 
@@ -18,6 +19,18 @@ def process_message():
 
     if request.method == 'POST':
         return prepare_email()
+
+
+@app.route('/recaptcha/<recaptcha_response>')
+def validate_recaptcha(recaptcha_response):
+    url = "https://www.google.com/recaptcha/api/siteverify"
+    secret = "6LfX8gYUAAAAAG2D9qXU62anvibwX6XU1esTwQWI"
+
+    r = requests.post(url=url, json={'secret': secret, 'response': recaptcha_response})
+    r.raise_for_status()
+
+    if r.json()['success']:
+        return jsonify(response="200")
 
 
 def prepare_email():
