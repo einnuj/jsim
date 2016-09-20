@@ -1,7 +1,7 @@
 $(function() {
     $('#contactBtn').click(function() {
         if (validateInput()) {
-            $('#reCAPTCHAModal').modal();
+            $('#reCAPTCHAModal').modal('show');
         }
     });
     $('#closeSuccessBtn').click(function() {
@@ -18,21 +18,23 @@ $(function() {
 });
 
 function validateInput() {
-    var inputName = $('#contactName').val();
+    var inputNameSelect = $('#contactName');
+    var inputName = inputNameSelect.val();
 
     if (typeof inputName != 'undefined') {
         if (inputName.length == 0) {
-            $('#contactName').val('Anonymous');
+            inputNameSelect.val('Anonymous');
         }
     }
 
-    var inputEmail = $('#contactEmail').val();
+    var inputEmailSelect = $('#contactEmail');
+    var inputEmail = inputEmailSelect.val();
 
     if (typeof inputEmail != 'undefined') {
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
         if (inputEmail.replace(/\s/g).length == 0 || !regex.test(inputEmail)) {
-            $('#contactEmail').popover('show');
+            inputEmailSelect.popover('show');
             return false;
         }
     }
@@ -56,6 +58,9 @@ function verifyRecaptcha(recatcha_resp) {
     .fail(function() {
         var errMsg = "Sorry; the request to verify your reCAPTCHA has failed!";
         respondError(errMsg);
+    })
+    .always(function() {
+        $('#reCAPTCHAModal').modal('hide');
     });
 }
 
@@ -68,12 +73,6 @@ function sendMessage() {
             email: $('#contactEmail').val(),
             business: $('#businessCheckbox').is('checked'),
             message: $('#contactMessage').val()
-        },
-        success: function(response) {
-            respondSuccess();
-        },
-        error: function(response) {
-            respondError();
         }
     })
     .done(function() {
