@@ -44,11 +44,10 @@ function validateInput() {
 function verifyRecaptcha(recaptcha_resp) {
 
     return $.ajax({
-        url: "https://www.google.com/recaptcha/api/siteverify",
+        url: $SCRIPT_ROOT + "/recaptcha",
         type: "POST",
         dataType: 'json',
         data: {
-            secret: "6LfX8gYUAAAAAG2D9qXU62anvibwX6XU1esTwQWI",
             response: recaptcha_resp
         }
     })

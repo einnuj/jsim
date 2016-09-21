@@ -21,16 +21,18 @@ def process_message():
         return prepare_email()
 
 
-@app.route('/recaptcha/<recaptcha_response>')
-def validate_recaptcha(recaptcha_response):
+@app.route('/recaptcha', methods=['POST'])
+def validate_recaptcha():
     url = "https://www.google.com/recaptcha/api/siteverify"
     secret = "6LfX8gYUAAAAAG2D9qXU62anvibwX6XU1esTwQWI"
 
-    r = requests.post(url=url, json={'secret': secret, 'response': recaptcha_response})
+    r = requests.post(url=url, json={'secret': secret, 'response': request.form['response']})
     r.raise_for_status()
 
     if r.json()['success']:
         return jsonify(response="200")
+    else:
+        return jsonify(response="500")
 
 
 def prepare_email():
@@ -62,3 +64,7 @@ def send_via_sendmail(msg):
 def send_via_smtp(msg):
     with SMTP('localhost') as smtp:
         return smtp.send_message(msg)
+
+
+if __name__ == "__main__":
+    app.run()
