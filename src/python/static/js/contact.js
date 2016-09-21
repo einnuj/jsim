@@ -42,6 +42,8 @@ function validateInput() {
 }
 
 function verifyRecaptcha(recaptcha_resp) {
+    var modalFooterSelect = $('.modal-footer');
+    var modalFooterOrgMsg = modalFooterSelect.html();
 
     return $.ajax({
         url: $SCRIPT_ROOT + "/recaptcha",
@@ -52,7 +54,7 @@ function verifyRecaptcha(recaptcha_resp) {
         }
     })
     .done(function() {
-        $('.modal-footer').val("You are (probably) not a robot; sending the message now!");
+        modalFooterSelect.html("You are (probably) not a robot; sending the message now! You can close this box, or wait for it to close itself in 3 seconds.");
         sendMessage();
     })
     .fail(function() {
@@ -60,7 +62,11 @@ function verifyRecaptcha(recaptcha_resp) {
         respondError(errMsg);
     })
     .always(function() {
-        $('#reCAPTCHAModal').modal('hide');
+        setTimeout(function() {
+            $('#reCAPTCHAModal').modal('hide');
+            grecaptcha.reset();
+            modalFooterSelect.html(modalFooterOrgMsg);
+        }, 3000);
     });
 }
 
@@ -90,5 +96,5 @@ function respondSuccess() {
 }
 
 function respondError(errMsg) {
-    $('#alertError').val(errMsg).show();
+    $('#alertError').html(errMsg).show();
 }
