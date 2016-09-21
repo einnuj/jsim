@@ -71,6 +71,8 @@ function verifyRecaptcha(recaptcha_resp) {
 }
 
 function sendMessage() {
+    $('#alertLoading').show();
+
     $.ajax({
         url: $SCRIPT_ROOT + "/contactme",
         type: "POST",
@@ -87,6 +89,9 @@ function sendMessage() {
     .fail(function() {
         var errMsg = "There was a server error; Junnie has been notified. Sorry!";
         respondError(errMsg);
+    })
+    .always(function() {
+        $('#alertLoading').hide();
     });
 }
 
